@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.med_report"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.med_report"

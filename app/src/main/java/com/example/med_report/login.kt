@@ -1,4 +1,4 @@
-package com.example.healthcarepateint
+package com.example.med_report
 
 
 import android.content.Context
@@ -10,15 +10,15 @@ import android.os.Looper
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
-import com.example.med_report.MainActivity
 import com.example.med_report.databinding.ActivityLoginBinding
 import com.example.med_report.signup
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
-class MainActivity : AppCompatActivity() {
+class login : AppCompatActivity() {
 
     private lateinit var binding : ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
@@ -32,11 +32,11 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
         var check = sharePreference.getString("name","")
-                if(check.equals("true")){
-                    var intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
+        if(check.equals("true")){
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         auth = Firebase.auth
 
@@ -50,40 +50,40 @@ class MainActivity : AppCompatActivity() {
 
             val email = binding.loginEmail.text.toString()
             val password = binding.loginPassword.text.toString()
-                if(checkAllfield()){
-                    auth.signInWithEmailAndPassword(email,password).addOnCompleteListener{
+            if(checkAllfield()){
+                auth.signInWithEmailAndPassword(email,password).addOnCompleteListener{
 
-                            if(it.isSuccessful){
-                                val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-                                val editor = sharePreference.edit()
-                                editor.putString("name","true")
-                                editor.apply()
-                                //working
-                                var intent = Intent(this, MainActivity::class.java)
-                                startActivity(intent)
-                                finish()
-                            }
-                            else{
-                                Toast.makeText(this,"Wrong Credential",Toast.LENGTH_SHORT).show()
+                    if(it.isSuccessful){
+                        val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
+                        val editor = sharePreference.edit()
+                        editor.putString("name","true")
+                        editor.apply()
+                        //working
+                        var intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    else{
+                        Toast.makeText(this,"Wrong Credential",Toast.LENGTH_SHORT).show()
 
-                                //error msg and clear entries
-                                binding.loginEmail.text?.clear()
-                                binding.loginPassword.text?.clear()
-                                binding.loginEmail.error = "Wrong Credential"
-                                binding.loginPassword.error = "Wrong Credential"
+                        //error msg and clear entries
+                        binding.loginEmail.text?.clear()
+                        binding.loginPassword.text?.clear()
+                        binding.loginEmail.error = "Wrong Credential"
+                        binding.loginPassword.error = "Wrong Credential"
 
-                            //after 2.5sec waring goes null
+                        //after 2.5sec waring goes null
 
-                            val handler = Handler(Looper.getMainLooper())
-                            handler.postDelayed({
+                        val handler = Handler(Looper.getMainLooper())
+                        handler.postDelayed({
 
-                                binding.loginEmail.error = null
-                                binding.loginPassword.error = null
-                            }, 2500)
-                            Log.e("error",it.exception.toString())
+                            binding.loginEmail.error = null
+                            binding.loginPassword.error = null
+                        }, 2500)
+                        Log.e("error",it.exception.toString())
 
 
-                        }
+                    }
                 }
             }
         }
