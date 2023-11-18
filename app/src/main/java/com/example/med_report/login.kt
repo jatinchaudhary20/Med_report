@@ -10,9 +10,8 @@ import android.os.Looper
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
-import com.example.med_report.databinding.ActivityLoginBinding
 import com.example.med_report.signup
-
+import com.example.med_report.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -27,9 +26,9 @@ class login : AppCompatActivity() {
 
         binding= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
         supportActionBar?.hide()
+
+
         val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
         var check = sharePreference.getString("name","")
         if(check.equals("true")){
