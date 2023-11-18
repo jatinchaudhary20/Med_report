@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.med_report.Authenticate.login
 import com.example.med_report.HomePageFeature.Appointment
+import com.example.med_report.HomePageFeature.Records
 import com.example.med_report.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -21,6 +22,11 @@ class MainActivity : AppCompatActivity() {
             //finish or not
         }
 
+        binding.button2.setOnClickListener{
+            var i = Intent(this, Records::class.java)
+            startActivity(i)
+        }
+
         binding.logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             var i = Intent(this, login::class.java)
@@ -31,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
             finish()
         }
+
+
 
 
 
