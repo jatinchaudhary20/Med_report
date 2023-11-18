@@ -1,4 +1,4 @@
-package com.example.med_report
+package com.example.med_report.Authenticate
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

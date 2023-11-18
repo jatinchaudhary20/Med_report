@@ -1,9 +1,10 @@
 package com.example.med_report
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.med_report.Authenticate.login
+import com.example.med_report.HomePageFeature.Appointment
 import com.example.med_report.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -15,14 +16,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btn1.setOnClickListener {
-            var i = Intent(this,Appointment::class.java)
+            var i = Intent(this, Appointment::class.java)
             startActivity(i)
             //finish or not
         }
 
         binding.logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            var i = Intent(this,login::class.java)
+            var i = Intent(this, login::class.java)
 //            val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
 //            val editor = sharePreference.edit()
 //            editor.putString("name","false")

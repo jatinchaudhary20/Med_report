@@ -1,4 +1,4 @@
-package com.example.med_report
+package com.example.med_report.Authenticate
 
 
 import android.content.Context
@@ -10,7 +10,7 @@ import android.os.Looper
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
-import com.example.med_report.signup
+import com.example.med_report.MainActivity
 import com.example.med_report.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

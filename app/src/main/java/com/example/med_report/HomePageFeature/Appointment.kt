@@ -1,4 +1,4 @@
-package com.example.med_report
+package com.example.med_report.HomePageFeature
 
 
 
@@ -9,6 +9,7 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.widget.Toast
+import com.example.med_report.MainActivity
 import com.example.med_report.Models.AppointmentModel
 import com.example.med_report.databinding.ActivityAppointmentBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -18,7 +19,8 @@ import com.google.firebase.database.FirebaseDatabase
 class Appointment : AppCompatActivity() {
 
     private lateinit var binding : ActivityAppointmentBinding
-    private lateinit var dbref : DatabaseReference
+    private lateinit var dbrefhw : DatabaseReference
+    private lateinit var dbrefaplist :DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,9 @@ class Appointment : AppCompatActivity() {
             supportActionBar?.hide()
 
 
-            dbref = FirebaseDatabase.getInstance().getReference("Health Worker")
+            dbrefhw = FirebaseDatabase.getInstance().getReference("Health Worker")
+           dbrefaplist = FirebaseDatabase.getInstance().getReference("AppointmentData")
+
 
 
         binding.btnAppointment.setOnClickListener {
@@ -45,7 +49,8 @@ class Appointment : AppCompatActivity() {
                     val userId = currentUser.uid
 
                     // Create a reference to the user's data using their UID
-                    val userRef = dbref.child(userId)
+                    val userRef = dbrefhw.child(userId)
+                    val userdbrefaplist = dbrefaplist.child(userId)
 
 
                     // Create a patient object
@@ -55,7 +60,7 @@ class Appointment : AppCompatActivity() {
                     userRef.setValue(patient).addOnCompleteListener {
 
                         Toast.makeText(this, "Appointment Book Sucessfully", Toast.LENGTH_SHORT).show()
-                        var i = Intent(this,MainActivity::class.java)
+                        var i = Intent(this, MainActivity::class.java)
 
 
                         val handler = Handler(Looper.getMainLooper())
@@ -68,10 +73,35 @@ class Appointment : AppCompatActivity() {
                     }.addOnFailureListener {
                         Toast.makeText(this, "Fail To Book Appointment", Toast.LENGTH_SHORT).show()
                     }
+
+                        //data insertion on appointment node
+                    userdbrefaplist.setValue(patient).addOnCompleteListener {
+                        var i = Intent(this, MainActivity::class.java)
+
+
+                        val handler = Handler(Looper.getMainLooper())
+                        handler.postDelayed({
+                            finish()
+                            startActivity(i)
+                        }, 1000)
+                        Log.e("error",it.exception.toString())
+
+                    }
+
+
+
+
+
+
+
                 } else {
                     // Handle the case where the current user is null
                     Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
                 }
+
+                //ssetting value in appointment list node
+
+
 
             }
 
