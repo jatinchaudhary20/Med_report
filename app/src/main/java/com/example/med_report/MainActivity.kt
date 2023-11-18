@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            var i = Intent(this,MainActivity::class.java)
+            var i = Intent(this,login::class.java)
 //            val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
 //            val editor = sharePreference.edit()
 //            editor.putString("name","false")

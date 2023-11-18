@@ -4,6 +4,203 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7165e3"
     tools:context=".Appointment">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="127dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Welcome!"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="cursive"
+        android:text="Here You Can Raise Your Appointment"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+    </TextView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="486dp"
+        android:layout_marginBottom="4dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/violetgradstroke"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="338dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="335dp"
+
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/violetgradstroke"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="148dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:text="Name"
+                        android:textSize="20sp">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/appointmentName"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="10dp">
+
+                    </EditText>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/violetgradstroke"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="148dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:text="Age"
+                        android:textSize="20sp">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/appointmentAge"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                    </EditText>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/violetgradstroke"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="148dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:text="Location"
+                        android:textSize="20sp">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/appointmentLocation"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                    </EditText>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/violetgradstroke"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="152dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:text="Date"
+                        android:textSize="20sp">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/appointmentDate"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                    </EditText>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/stroke"
+            android:padding="10dp"
+            android:text="Book An Test Appointment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
