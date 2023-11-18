@@ -29,13 +29,13 @@ class login : AppCompatActivity() {
         supportActionBar?.hide()
 
 
-        val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-        var check = sharePreference.getString("name","")
-        if(check.equals("true")){
-            var intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        val sharePreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
+//        var check = sharePreference.getString("name","")
+//        if(check.equals("true")){
+//            var intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         auth = Firebase.auth
 

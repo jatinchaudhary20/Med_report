@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
 //            val editor = sharePreference.edit()
 //            editor.putString("name","false")
 //            editor.apply()
-            finish()
             startActivity(i)
+            finish()
         }
 
 
