@@ -3,15 +3,11 @@ package com.example.med_report.HomePageFeature
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.med_report.R
 import com.example.med_report.databinding.ActivityRecordsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.example.med_report.Models.PateintReport
-import com.example.med_report.MainActivity
 import com.google.firebase.ktx.Firebase
 
-// ... (your imports)
 
 class Records : AppCompatActivity() {
     private lateinit var binding: ActivityRecordsBinding
@@ -25,7 +21,7 @@ class Records : AppCompatActivity() {
         val userId = currentUser?.uid.toString()
         val dbrefpateintreport = FirebaseDatabase.getInstance().getReference("Patient Report").child(userId)
 
-        // Define these variables inside the success listener to get the latest data
+        // Define these variables inside the success listener to get the data
         dbrefpateintreport.get().addOnSuccessListener { snapshot ->
             if (snapshot.exists()) {
                 Toast.makeText(this, "Success To load", Toast.LENGTH_SHORT).show()
